@@ -6,25 +6,41 @@ import torch.nn as nn
 
 import torch.optim as optim
 
-from torchvision import transforms
+from torchvision import transforms, datasets
 
 from torch.utils.data import DataLoader
 
 
 transform = transforms.Compose([
-
+    
+    transforms.Resize((32,32)),
     transforms.ToTensor()
+    
 ])
 
 
+train_dataset = datasets.ImageFolder(
+
+    root="Dataset/train",
+    transform= transform
+)
+
+validation_dataset = datasets.ImageFolder(
+
+    root= "Dataset/val",
+    transform= transform
+)
+
+
+print(train_dataset.classes)
+print(len(train_dataset))
+print(len(validation_dataset))
 
 
 
 
 
-
-
-class SimpleConvolutionalNetwork(nn.Module):
+"""class SimpleConvolutionalNetwork(nn.Module):
 
     def __init__(self):
         super(SimpleConvolutionalNetwork, self).__init__()
@@ -70,4 +86,4 @@ class SimpleConvolutionalNetwork(nn.Module):
 
         x = self.fc2(x)
 
-        return x
+        return x"""
