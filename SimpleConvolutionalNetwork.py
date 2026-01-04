@@ -151,54 +151,62 @@ otimizador = optim.Adam( modeloCNN.parameters(), lr = 0.001)
 criterio = nn.CrossEntropyLoss()
 
 
-epochs = 61
 
 
-for epoch in range(epochs):
+if __name__ == "__main__":
+     
+     
+     epochs = 61
 
-    running_loss = 0.0
 
-    for images, labels in train_loader:
+     for epoch in range(epochs):
 
-        otimizador.zero_grad()
+            running_loss = 0.0
 
-        outputs = modeloCNN(images)
+            for images, labels in train_loader:
 
-        loss = criterio(outputs, labels)
+                 otimizador.zero_grad()
 
-        loss.backward()
+                 outputs = modeloCNN(images)
 
-        otimizador.step()
+                 loss = criterio(outputs, labels)
+
+                 loss.backward()
+
+                 otimizador.step()
         
-        running_loss += loss.item()
+                 running_loss += loss.item()
 
-    avg_loss = running_loss / len(train_loader)
+            avg_loss = running_loss / len(train_loader)
 
-    print(f"Epoch [{epoch+1}/{epochs}] | Train Loss: {avg_loss:.4f}")
+            print(f"Epoch [{epoch+1}/{epochs}] | Train Loss: {avg_loss:.4f}")
 
 
-modeloCNN.eval()
-correct = 0
-total = 0
-val_loss = 0.0
+     modeloCNN.eval()
+     correct = 0
+     total = 0
+     val_loss = 0.0
 
-with torch.no_grad():
+     with torch.no_grad():
 
-    for images, labels in validation_loader:
+          for images, labels in validation_loader:
 
-        outputs = modeloCNN(images)
+              outputs = modeloCNN(images)
 
-        loss = criterio(outputs, labels)
+              loss = criterio(outputs, labels)
 
-        val_loss += loss.item()
+              val_loss += loss.item()
 
-        _, predicted = torch.max(outputs, 1)
+              _, predicted = torch.max(outputs, 1)
 
-        total += labels.size(0)
+              total += labels.size(0)
 
-        correct += (predicted == labels).sum().item()
+              correct += (predicted == labels).sum().item()
 
-val_loss /= len(validation_loader)
-accuracy = 100 * correct / total
+     val_loss /= len(validation_loader)
+     accuracy = 100 * correct / total
 
-print(f"Validation Loss: {val_loss:.4f} | Accuracy: {accuracy:.2f}%")
+     print(f"Validation Loss: {val_loss:.4f} | Accuracy: {accuracy:.2f}%")
+
+
+     torch.save(modeloCNN.state_dict(), "modelo_frutas.pth")
