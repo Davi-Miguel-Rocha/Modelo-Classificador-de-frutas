@@ -1,8 +1,8 @@
-# 🍎🍌 Classificador de Frutas com CNN
+# 🍎🍌 Classificador de Frutas com rede neural convolucional
 
-Este projeto implementa uma **Rede Neural Convolucional (CNN)** capaz de classificar imagens de frutas, atualmente distinguindo entre **banana** e **maçã**.
+Este projeto implementa uma **Rede Neural Convolucional** capaz de classificar imagens de frutas, atualmente distinguindo entre **banana** e **maçã**.
 
-O objetivo do projeto é aplicar, na prática, conceitos fundamentais de **Visão Computacional** e **Deep Learning**, com foco em aprendizado manual e compreensão do funcionamento interno de uma CNN.
+O objetivo do projeto é aplicar, na prática, conceitos fundamentais de **Visão Computacional** e **Deep Learning**, com foco em aprendizado manual e compreensão do funcionamento interno de um modelo de convolução.
 
 ---
 
@@ -55,7 +55,7 @@ Mesmo com um conjunto reduzido de dados, o modelo consegue aprender padrões rel
 
 ## 🧪 Modelo
 
-O modelo é baseado em uma **Rede Neural Convolucional (CNN)**, composta por:
+O modelo é baseado em uma **Rede Neural Convolucional**, composta por:
 
 - Camadas convolucionais com filtros 3x3
 - Funções de ativação
@@ -78,7 +78,7 @@ A arquitetura foi escolhida para equilibrar simplicidade e capacidade de aprendi
 
 ## 🚀 Objetivo do Projeto
 
-- Consolidar o entendimento de CNNs
+- Consolidar o entendimento de redes neurais convolucionais
 - Trabalhar com visão computacional em um cenário real
 - Criar um projeto prático e didático para portfólio
 - Demonstrar domínio do pipeline completo:
@@ -89,8 +89,8 @@ A arquitetura foi escolhida para equilibrar simplicidade e capacidade de aprendi
 ## 🛠️ Tecnologias Utilizadas
 
 - Python
-- Bibliotecas de Deep Learning (ex: TensorFlow / Keras ou equivalente)
-- Manipulação de imagens
+- PyTorch
+- PIL
 
 ---
 
